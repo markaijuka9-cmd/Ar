@@ -1,0 +1,66 @@
+<!-- File 5: app/src/main/res/layout/activity_main.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Home screen favorites grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homeRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="8dp" />
+
+    <!-- Drawer container that slides up -->
+    <FrameLayout
+        android:id="@+id/drawerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- Dark translucent overlay -->
+        <View
+            android:id="@+id/dimBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80000000" />
+
+        <!-- Glass panel (blur will be applied programmatically) -->
+        <LinearLayout
+            android:id="@+id/glassPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:elevation="4dp">
+
+            <!-- Search bar with glass look -->
+            <EditText
+                android:id="@+id/searchEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/glass_search_bg"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:hint="Search apps..."
+                android:inputType="textVisiblePassword"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAFFFFFF" />
+
+            <!-- Drawer app grid (4 columns) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/drawerRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>
